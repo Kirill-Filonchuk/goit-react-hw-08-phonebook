@@ -1,8 +1,8 @@
 import { lazy } from 'react';
-// import { useEffect, lazy } from 'react'; -2
+// import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
-// import Home from '../pages/Home';
+// import { useAuth } from './hooks';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -10,6 +10,8 @@ const LoginPage = lazy(() => import('../pages/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
 
 export const App = () => {
+  // const dispatch = useDispatch;
+  // const {}
   // useEffect(() => {}, []);
 
   return (

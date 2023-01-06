@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchContacts } from 'redux/contacts/operations';
 import { Helmet } from 'react-helmet';
 import { ContactForm } from 'components/ContactForm';
 import { Filter } from 'components/Filter';
 import { ContactList } from 'components/ContactList';
+import { selectIsLoading } from 'redux/contacts/selectors';
 // import { selectError, selectIsLoading } from 'redux/selectors';
 
 const styles = {
@@ -19,8 +23,12 @@ const styles = {
 };
 
 export default function Contacts() {
-  const isLoading = true;
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
 
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   return (
     <>
       <Helmet>
@@ -30,7 +38,7 @@ export default function Contacts() {
         <h1>Phonebook</h1>
         <ContactForm />
         {/* {isLoading && !error && (
-          <b className="info_message">Request in progress...</b>
+          <b className="info_message">Request in progress.alex321123@mail.com..</b>
         )}
         {error && <b className="info_message">Error message --- {error}</b>} */}
         <h2>Contacts</h2>
