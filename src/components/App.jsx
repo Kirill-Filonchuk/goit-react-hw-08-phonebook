@@ -1,4 +1,5 @@
-import { useEffect, lazy } from 'react';
+import { lazy } from 'react';
+// import { useEffect, lazy } from 'react'; -2
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout';
 // import Home from '../pages/Home';
