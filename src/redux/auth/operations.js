@@ -59,3 +59,30 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(e.message);
   }
 });
+
+// /users/current
+// @ GET
+// Get information about current user
+
+export const refreshUser = createAsyncThunk(
+  'auth/refreshing',
+  async (_, thunkAPI) => {
+    // Reading the token from the state via getState()
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+    console.log(persistedToken, 'Auth operation <- persistedToken');
+    if (persistedToken === null) {
+      console.log('persistedToken === null');
+      return thunkAPI.rejectWithValue('Have to fetching User');
+    }
+    console.log('Refreshing USER');
+    setAuthHeader(persistedToken, 'after IF');
+    try {
+      const res = await axios.get('/users/current');
+      console.log(res.data, 'Auth operation <- /users/current');
+      return res.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

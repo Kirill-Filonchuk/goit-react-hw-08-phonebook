@@ -7,10 +7,10 @@ export const Layout = () => {
   return (
     <div style={{ maxWidth: 960, margin: '0 auto', padding: '0 16px' }}>
       <p>
-        <span role="img" aria-label="computer icon">
-          💻
+        <span role="img" aria-label="phone">
+          🗃️
         </span>{' '}
-        GoMerch Store
+        C_App
       </p>
       <AppBar />
       <Suspense fallback={<div>Loading...</div>}>
