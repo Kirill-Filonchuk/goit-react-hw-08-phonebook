@@ -18,7 +18,7 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    'Fetching contacts'
+    <b>Refreshing user...</b>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
