@@ -12,14 +12,14 @@ export const RegisterForm = () => {
     const name = form.elements[0].value;
     const email = form.elements[1].value;
     const password = form.elements[2].value;
-    console.log(
-      {
-        name,
-        email,
-        password,
-      },
-      'Registe-Form'
-    );
+    // console.log(
+    //   {
+    //     name,
+    //     email,
+    //     password,
+    //   },
+    //   'Registe-Form'
+    // );
     dispatch(
       register({
         name,

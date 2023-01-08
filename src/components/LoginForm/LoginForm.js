@@ -9,7 +9,7 @@ export const LoginForm = () => {
     const form = event.currentTarget;
     const email = form.elements[0].value;
     const password = form.elements[1].value;
-    console.log({ email, password });
+    // console.log({ email, password });
     dispatch(logIn({ email, password }));
     form.reset();
   };
