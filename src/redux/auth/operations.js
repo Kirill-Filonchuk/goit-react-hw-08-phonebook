@@ -38,7 +38,7 @@ export const logIn = createAsyncThunk(
   async (credantials, thunkAPI) => {
     try {
       const res = await axios.post('/users/login', credantials);
-      console.log(res.data.token, 'auth/login');
+      // console.log(res.data.token, 'auth/login');
       setAuthHeader(res.data.token);
       return res.data;
     } catch (e) {
@@ -70,17 +70,17 @@ export const refreshUser = createAsyncThunk(
     // Reading the token from the state via getState()
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    console.log(persistedToken, 'Auth operation <- persistedToken');
+    // console.log(persistedToken, 'Auth operation <- persistedToken');
     if (persistedToken === null) {
-      console.log('persistedToken === null');
+      // console.log('persistedToken === null');
       return thunkAPI.rejectWithValue('Have to fetching User');
     }
-    console.log('Refreshing USER');
+    // console.log('Refreshing USER');
     setAuthHeader(persistedToken, 'after IF');
     try {
       // If there is a token, add it to the HTTP header and perform the request
       const res = await axios.get('/users/current');
-      console.log(res.data, 'Auth operation <- /users/current');
+      // console.log(res.data, 'Auth operation <- /users/current');
       return res.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
