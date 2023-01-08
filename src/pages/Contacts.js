@@ -6,8 +6,6 @@ import { ContactForm } from 'components/ContactForm';
 import { Filter } from 'components/Filter';
 import { ContactList } from 'components/ContactList';
 import { selectIsLoading } from 'redux/contacts/selectors';
-// import { selectError, selectIsLoading } from 'redux/selectors';
-
 const styles = {
   container: {
     display: 'flex',
@@ -37,10 +35,6 @@ export default function Contacts() {
       <div style={styles.container}>
         <h1>Phonebook</h1>
         <ContactForm />
-        {/* {isLoading && !error && (
-          <b className="info_message">Request in progress.alex321123@mail.com..</b>
-        )}
-        {error && <b className="info_message">Error message --- {error}</b>} */}
         <h2>Contacts</h2>
         <Filter />
         <div>{isLoading && 'Request in progress...'}</div>
